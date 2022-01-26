@@ -59,12 +59,12 @@ const userPut =  async(req, res) => {
         resto.password = bcryptjs.hashSync(password, salt)
     }
 
-    const usuario = await Usuario.findByIdAndUpdate(id, resto);
+    const usuarioActualizado = await Usuario.findByIdAndUpdate(id, resto, {new:true});
 
     res.json({
         ok : true,
         msg : 'Put API - controllers',
-        resto
+        usuarioActualizado
     });
 };
 
