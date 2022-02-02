@@ -12,7 +12,7 @@
     <hr>
 
     <div id="g_id_onload"
-        data-client_id="430460257012-c872tj2ad6401iuisoc9vhpr7gt30ahj.apps.googleusercontent.com"
+        data-client_id=`${process.env.GOOGLE_CLIENT_ID}`
         data-auto_prompt="false"
         data-callback="handleCredentialResponse">
     </div>
@@ -65,7 +65,7 @@
         }
 
         const button = document.getElementById('google_signout');
-        button.onclick = () => {
+        button.onclick = async() => {
             console.log(google.accounts.id)
             google.accounts.id.disableAutoSelect();
             google.accounts.id.revoke(localStorage.getItem('email'), done => {
